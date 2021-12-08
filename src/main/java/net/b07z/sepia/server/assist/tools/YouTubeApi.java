@@ -31,6 +31,7 @@ public class YouTubeApi {
 		if (Is.nullOrEmpty(searchTerm)){
 			return JSON.make("result", new JSONArray(), "status", 200);		//empty query = empty result
 		}
+		//the following "if" shall be adapted if ytmusicapi is used --> no need of youtube_api_key!
 		if (Is.nullOrEmpty(Config.youtube_api_key)){
 			return JSON.make("error", "Missing API key", "status", 400);
 		}
@@ -43,14 +44,8 @@ public class YouTubeApi {
 		try {
 			//build URL
 			String url = Config.youtube_api_url
-				+ "?part=snippet"
-				+ "&maxResults=" + maxResults
-				+ "&q=" + URLEncoder.encode(searchTerm, "UTF-8")
-				+ "&order=relevance"
-				//+ "&order=rating"
-				+ "&type=video&videoCaption=none&videoEmbeddable=true&videoLicense=any"
-				+ "&safeSearch=none"
-				+ "&key=" + Config.youtube_api_key;
+				+ "?q=" + URLEncoder.encode(searchTerm, "UTF-8")
+				+ "&maxResults=" + maxResults;
 			
 			//Header
 			Map<String, String> headers = new HashMap<>();
