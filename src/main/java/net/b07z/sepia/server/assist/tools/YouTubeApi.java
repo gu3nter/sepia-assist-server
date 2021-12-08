@@ -45,14 +45,8 @@ public class YouTubeApi {
 		try {
 			//build URL
 			String url = youTubeSearchApi
-				+ "?part=snippet"
-				+ "&maxResults=" + maxResults
-				+ "&q=" + URLEncoder.encode(searchTerm, "UTF-8")
-				+ "&order=relevance"
-				//+ "&order=rating"
-				+ "&type=video&videoCaption=none&videoEmbeddable=true&videoLicense=any"
-				+ "&safeSearch=none"
-				+ "&key=" + Config.youtube_api_key;
+				+ "?q=" + URLEncoder.encode(searchTerm, "UTF-8")
+				+ "&maxResults=" + maxResults;
 			
 			//Header
 			Map<String, String> headers = new HashMap<>();
