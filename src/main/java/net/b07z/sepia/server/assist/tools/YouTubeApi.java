@@ -21,7 +21,7 @@ import net.b07z.sepia.server.core.tools.JSON;
  */
 public class YouTubeApi {
 	
-	private static String youTubeSearchApi = "http://localhost::30010/search";
+	private static String youTubeSearchApi = "http://localhost:30010/search";
 	
 	/**
 	 * Send request to YouTubeAPI and return array of matches.
